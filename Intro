@@ -1,0 +1,21 @@
+Secrets 
+>> Authentication >> Autherization
+Uername/Passwords
+DB Credentials ... API Tokens ...TLS certificates.
+why ?? what we see is a secret sprawl.... In Plain Text ..Source Code / configuration files / VCS.. sprawled all over the infrastructure.
+How to do the rotation.
+Valut resolves the secret sprawl probelm..by centralizing this. Encryption at rest as well as in-transit between vault and any of the clients that want to access it.
+Fine grained ACL (Access control list)
+Audit (Strong visibility to this)
+Logs .. Diagnostics ..Monitoring
+Second level capability is dynamic Secret : Dyanmic secters are ephemeral, unique , Revoke specific target
+we might put encryption keys inside the vault then distribute the key back out to the application. The application is doing cryptography to protect data at rest.
+But what if application is not doing cryptography correctly. 
+Different capability is known as Encrypt as a Service
+Instead of handover encyption key to developer , Vault will do certain things. It will let you create a set of named keys.
+Named Keys : and provide High level APIs .. which do the operations like Encryption, Decryption, Signature, Verify.
+We get the full key life-cycle as well provided by the vault.
+Through a series of key management and high level cryptographic offload.
+Valut is highly pluggable ..it has many different plug-in mechanisms
+Core ... plugin Authentication 
+some plugins are : EC2 VM AWS, LDAP/AD, K8S, KN, Database , RabbitMq, AWS, PKI, SSH, 
